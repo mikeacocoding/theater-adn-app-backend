@@ -1,20 +1,12 @@
 import { Injectable, Inject } from '@nestjs/common';
-import Movie from 'src/domain/models/Movie';
+import Movie from 'src/domain/movie/model/Movie';
+import { MovieRepository } from 'src/domain/movie/ports/repository/movie.repository';
 
 @Injectable()
 export default class GetAllMoviesUseCase {
-  constructor() {}
+  constructor(@Inject('MovieRepository') private movieRepository: MovieRepository) {}
 
   public handler(): Promise<Movie[]> {
-    return new Promise((resolve, reject) => {
-      setTimeout(function() {
-
-        let moviedemo = new Movie();
-        moviedemo.setId('1');
-        moviedemo.setName("Star Wars");
-
-        resolve([moviedemo]);
-      }, 25);
-    });
+    return this.movieRepository.getAll();
   }
 }
