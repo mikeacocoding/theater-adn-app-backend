@@ -7,5 +7,12 @@ export class MovieEntity{
     id: string;
 
     @Column()
-    name: string;
+    title: string;
+    
+    @Column()
+    description: string;
+
+    @Column()
+    imageUrl: string;
+
 }

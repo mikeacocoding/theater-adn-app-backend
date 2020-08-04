@@ -1,5 +1,5 @@
 import { MovieEntity } from "../movie.entity";
-import Movie from "src/domain/movie/model/Movie";
+import Movie from "src/domain/movie/model/movie";
 import { Optional } from 'typescript-optional';
 
 export default class MovieMapper{
@@ -9,7 +9,7 @@ export default class MovieMapper{
             return Optional.empty<Movie>();
         }
 
-        const movie = new Movie(movieEntity.id,movieEntity.name);
+        const movie = new Movie(movieEntity.id,movieEntity.title,movieEntity.description,movieEntity.imageUrl);
         return Optional.of(movie);
     }
 
