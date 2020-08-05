@@ -14,6 +14,11 @@ export default class MovieTicketEntity{
     @Column('timestamp')
     date: Date;
 
+    @Column('decimal',{
+        nullable: true
+    })
+    value: number;
+
     @ManyToOne(type => MovieEntity,{
         eager: true
     })

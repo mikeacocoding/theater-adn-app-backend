@@ -3,7 +3,7 @@ import MovieTicketRepository from 'src/domain/movie-ticket/ports/movie-ticket.re
 import MovieTicket from 'src/domain/movie-ticket/model/movie-ticket';
 
 @Injectable()
-export default class getAllMovieTicketsUseCase{
+export default class GetAllMovieTicketsUseCase{
 
     constructor(@Inject('MovieTicketRepository') private repository: MovieTicketRepository){}
 

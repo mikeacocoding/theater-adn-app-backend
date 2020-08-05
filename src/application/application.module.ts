@@ -5,18 +5,38 @@ import { MovieRepositoryMySQL } from 'src/infrastructure/movie/adapters/movie.re
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MovieEntity } from 'src/infrastructure/movie/movie.entity';
 import MovieTicketEntity from 'src/infrastructure/movie-ticket/movie-ticket.entity';
-import getAllMovieTicketsUseCase from './UseCases/movie-ticket/getAllMovieTickets.usecase';
+import GetAllMovieTicketsUseCase from './UseCases/movie-ticket/getAllMovieTickets.usecase';
 import { MovieTicketRepositoryMySQL } from 'src/infrastructure/movie-ticket/adapters/movie-ticket.repository.mysql';
+import CreateMovieTicketUseCase from './UseCases/movie-ticket/createMovieTicket.usecase';
+import MovieTicketFactory from './UseCases/movie-ticket/factory/movie-ticket.factory';
+import MovieFactory from './UseCases/movie/factory/movie.factory';
 
 @Module({
-    imports: [DomainModule,  TypeOrmModule.forFeature([MovieEntity, MovieTicketEntity])],
-    providers: [GetAllMoviesUseCase,getAllMovieTicketsUseCase,{
-        provide: 'MovieRepository',
-        useClass: MovieRepositoryMySQL
-    },{
-        provide: 'MovieTicketRepository',
-        useClass: MovieTicketRepositoryMySQL
-    }],
-    exports: [GetAllMoviesUseCase, getAllMovieTicketsUseCase]
+  imports: [
+    DomainModule,
+    TypeOrmModule.forFeature([MovieEntity, MovieTicketEntity]),
+  ],
+  providers: [
+    MovieFactory,
+    MovieTicketFactory,
+    GetAllMoviesUseCase,
+    GetAllMovieTicketsUseCase,
+    CreateMovieTicketUseCase,
+    {
+      provide: 'MovieRepository',
+      useClass: MovieRepositoryMySQL,
+    },
+    {
+      provide: 'MovieTicketRepository',
+      useClass: MovieTicketRepositoryMySQL,
+    },
+  ],
+  exports: [
+    MovieFactory,
+    MovieTicketFactory,
+    GetAllMoviesUseCase,
+    GetAllMovieTicketsUseCase,
+    CreateMovieTicketUseCase,
+  ],
 })
 export class ApplicationModule {}

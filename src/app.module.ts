@@ -4,7 +4,7 @@ import { DomainModule } from './domain/domain.module';
 import { InfrastructureModule } from './infrastructure/infrastructure.module';
 
 @Module({
-  imports: [DomainModule, ApplicationModule, InfrastructureModule ],
+  imports: [ InfrastructureModule ],
   controllers: [],
   providers: [],
 })

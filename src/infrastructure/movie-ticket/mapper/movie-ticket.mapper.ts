@@ -17,6 +17,7 @@ export default class MovieTicketMapper {
       movieTicketEntity.id,
       movieTicketEntity.ticketId,
       movieTicketEntity.date,
+      movieTicketEntity.value,
       movie
     );
     return Optional.of(movieTicket);
