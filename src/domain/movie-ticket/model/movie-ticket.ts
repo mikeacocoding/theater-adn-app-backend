@@ -7,10 +7,9 @@ export default class MovieTicket {
   private value: number;
   private movie: Movie;
 
-  constructor(id: string, ticketId: number, date: Date, value: number, movie: Movie) {
+  constructor(id: string, ticketId: number, value: number, movie: Movie) {
     this.id = id;
     this.ticketId = ticketId;
-    this.date = date;
     this.value = value || 0;
     this.movie = movie;
   }
@@ -48,5 +47,9 @@ export default class MovieTicket {
   }
   public setMovie(movie: Movie) {
     this.movie = movie;
+  }
+
+  public setDateFromString(date: string){
+    this.date = new Date(date);
   }
 }

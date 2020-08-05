@@ -16,10 +16,10 @@ export default class MovieTicketMapper {
     const movieTicket = new MovieTicket(
       movieTicketEntity.id,
       movieTicketEntity.ticketId,
-      movieTicketEntity.date,
       movieTicketEntity.value,
       movie
     );
+    movieTicket.setDate(movieTicketEntity.date);
     return Optional.of(movieTicket);
   }
 
