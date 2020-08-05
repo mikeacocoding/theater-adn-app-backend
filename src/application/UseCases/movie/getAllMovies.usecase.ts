@@ -6,7 +6,7 @@ import { MovieRepository } from 'src/domain/movie/ports/repository/movie.reposit
 export default class GetAllMoviesUseCase {
   constructor(@Inject('MovieRepository') private movieRepository: MovieRepository) {}
 
-  public handler(): Promise<Movie[]> {
+  public handle(): Promise<Movie[]> {
     return this.movieRepository.getAll();
   }
 }

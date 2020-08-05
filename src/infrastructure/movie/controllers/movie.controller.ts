@@ -8,7 +8,7 @@ export class MovieController {
 
   @Get()
   public async getMovies(@Res() res): Promise<any> {
-    const movies = await this.getAllMoviesUseCase.handler();
+    const movies = await this.getAllMoviesUseCase.handle();
     return res.status(HttpStatus.OK).json(movies);
   }
 }
