@@ -21,7 +21,6 @@ export class MovieTicketRepositoryMySQL implements MovieTicketRepository {
   public async createMovieTicket(
     movieTicket: MovieTicket,
   ): Promise<Optional<MovieTicket>> {
-
     let movie = movieTicket.getMovie();
 
     let movieEntity = new MovieEntity();
@@ -29,14 +28,32 @@ export class MovieTicketRepositoryMySQL implements MovieTicketRepository {
     movieEntity.title = movie.getTitle();
     movieEntity.description = movie.getDescription();
     movieEntity.imageUrl = movie.getImageUrl();
+    movieEntity.price = movie.getPrice();
 
-    let movieTicketEntity = new MovieTicketEntity(); 
+    let movieTicketEntity = new MovieTicketEntity();
     movieTicketEntity.ticketId = movieTicket.getTicketId();
     movieTicketEntity.value = movieTicket.getValue();
-    movieTicketEntity.date =movieTicket.getDate();
+    movieTicketEntity.date = movieTicket.getDate();
     movieTicketEntity.movie = movieEntity;
 
     movieTicketEntity = await this.repository.save(movieTicketEntity);
     return MovieTicketMapper.toDomain(movieTicketEntity);
+  }
+
+  public async deleteMovieTicketByTicketId(
+    ticketId: number,
+  ): Promise<Optional<MovieTicket>> {
+    let ticket = await this.repository.findOne({
+      where: { ticketId: ticketId },
+    });
+
+    if (!ticket) {
+      return Optional.empty<MovieTicket>();
+    }
+    console.log('Eliminando Ticket');
+    console.log(ticket);
+    await this.repository.delete(ticket);
+    let deletedTicket = MovieTicketMapper.toDomain(ticket);
+    return deletedTicket;
   }
 }

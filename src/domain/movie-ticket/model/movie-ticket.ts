@@ -7,11 +7,15 @@ export default class MovieTicket {
   private value: number;
   private movie: Movie;
 
-  constructor(id: string, ticketId: number, value: number, movie: Movie) {
+  constructor(id: string, value: number, movie: Movie) {
     this.id = id;
-    this.ticketId = ticketId;
+    this.ticketId = this.generateTicketId();
     this.value = value || 0;
     this.movie = movie;
+  }
+
+  public generateTicketId(): number{
+    return Math.floor(Math.random() * (Math.pow(10,9)));
   }
 
   public getId() {

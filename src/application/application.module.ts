@@ -10,6 +10,7 @@ import { MovieTicketRepositoryMySQL } from 'src/infrastructure/movie-ticket/adap
 import CreateMovieTicketUseCase from './UseCases/movie-ticket/createMovieTicket.usecase';
 import MovieTicketFactory from './UseCases/movie-ticket/factory/movie-ticket.factory';
 import MovieFactory from './UseCases/movie/factory/movie.factory';
+import DeleteMovieTicketByTicketIdUseCase from './UseCases/movie-ticket/deleteMovieTicketByTicketId.usecase';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import MovieFactory from './UseCases/movie/factory/movie.factory';
     GetAllMoviesUseCase,
     GetAllMovieTicketsUseCase,
     CreateMovieTicketUseCase,
+    DeleteMovieTicketByTicketIdUseCase,
     {
       provide: 'MovieRepository',
       useClass: MovieRepositoryMySQL,
@@ -37,6 +39,7 @@ import MovieFactory from './UseCases/movie/factory/movie.factory';
     GetAllMoviesUseCase,
     GetAllMovieTicketsUseCase,
     CreateMovieTicketUseCase,
+    DeleteMovieTicketByTicketIdUseCase,
   ],
 })
 export class ApplicationModule {}

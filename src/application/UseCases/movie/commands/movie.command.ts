@@ -3,4 +3,5 @@ export default class MovieCommand{
     public title: string;
     public description: string;
     public imageUrl: string;
+    public price: number;
 }
