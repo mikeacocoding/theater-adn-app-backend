@@ -1,6 +1,6 @@
 import { Controller, Get, Res, HttpStatus } from '@nestjs/common';
 
-import GetAllMoviesUseCase from 'src/application/UseCases/getAllMovies.usecase';
+import GetAllMoviesUseCase from 'src/application/UseCases/movie/getAllMovies.usecase';
 
 @Controller('movies/')
 export class MovieController {

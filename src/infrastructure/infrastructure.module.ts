@@ -6,20 +6,26 @@ import { databaseConfigFactory } from './config/database.config';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MovieModule } from './movie/movie.module';
 import { NodeEnv } from './config/environment/env-node.enum';
+import { MovieTicketModule } from './movie-ticket/movie-ticket.module';
 
 @Module({
-    imports: [ApplicationModule ,MovieModule, TypeOrmModule.forRootAsync({
-        useFactory: databaseConfigFactory,
-        inject: [ConfigService]
+  imports: [
+    ApplicationModule,
+    MovieModule,
+    MovieTicketModule,
+    TypeOrmModule.forRootAsync({
+      useFactory: databaseConfigFactory,
+      inject: [ConfigService],
     }),
     ConfigModule.forRoot({
-        isGlobal: true,
-        envFilePath: `env/${process.env.NODE_ENV}.env`,
-        validationSchema: Joi.object({
-            NODE_ENV: Joi.string()
-              .valid(NodeEnv.DEVELOPMENT, NodeEnv.PRODUCTION)
-              .required(),
-          }),
-    })]
+      isGlobal: true,
+      envFilePath: `env/${process.env.NODE_ENV}.env`,
+      validationSchema: Joi.object({
+        NODE_ENV: Joi.string()
+          .valid(NodeEnv.DEVELOPMENT, NodeEnv.PRODUCTION)
+          .required(),
+      }),
+    }),
+  ],
 })
 export class InfrastructureModule {}

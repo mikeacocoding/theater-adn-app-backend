@@ -1,8 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, Generated, OneToOne, JoinColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, Generated, OneToOne, JoinColumn, ManyToOne } from 'typeorm';
 import { MovieEntity } from '../movie/movie.entity';
 import { type } from 'os';
 
-@Entity()
+@Entity({name: 'movie_ticket'})
 export default class MovieTicketEntity{
 
     @PrimaryGeneratedColumn('uuid')
@@ -11,10 +11,12 @@ export default class MovieTicketEntity{
     @Column()
     ticketId: number;
 
-    @OneToOne(type => MovieEntity)
-    @JoinColumn()
-    movie: MovieEntity;
-
     @Column('timestamp')
     date: Date;
+
+    @ManyToOne(type => MovieEntity,{
+        eager: true
+    })
+    @JoinColumn()
+    movie: MovieEntity
 }
