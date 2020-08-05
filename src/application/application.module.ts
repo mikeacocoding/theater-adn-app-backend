@@ -11,6 +11,7 @@ import CreateMovieTicketUseCase from './UseCases/movie-ticket/createMovieTicket.
 import MovieTicketFactory from './UseCases/movie-ticket/factory/movie-ticket.factory';
 import MovieFactory from './UseCases/movie/factory/movie.factory';
 import DeleteMovieTicketByTicketIdUseCase from './UseCases/movie-ticket/deleteMovieTicketByTicketId.usecase';
+import { CalculateMovieTicketUseCase } from './UseCases/movie-ticket/calculateMovieTicketValue.usecase';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import DeleteMovieTicketByTicketIdUseCase from './UseCases/movie-ticket/deleteMo
     GetAllMovieTicketsUseCase,
     CreateMovieTicketUseCase,
     DeleteMovieTicketByTicketIdUseCase,
+    CalculateMovieTicketUseCase,
     {
       provide: 'MovieRepository',
       useClass: MovieRepositoryMySQL,
@@ -40,6 +42,7 @@ import DeleteMovieTicketByTicketIdUseCase from './UseCases/movie-ticket/deleteMo
     GetAllMovieTicketsUseCase,
     CreateMovieTicketUseCase,
     DeleteMovieTicketByTicketIdUseCase,
+    CalculateMovieTicketUseCase,
   ],
 })
 export class ApplicationModule {}
