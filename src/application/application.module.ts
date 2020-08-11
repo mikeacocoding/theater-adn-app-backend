@@ -12,6 +12,7 @@ import MovieTicketFactory from './UseCases/movie-ticket/factory/movie-ticket.fac
 import MovieFactory from './UseCases/movie/factory/movie.factory';
 import DeleteMovieTicketByTicketIdUseCase from './UseCases/movie-ticket/deleteMovieTicketByTicketId.usecase';
 import { CalculateMovieTicketUseCase } from './UseCases/movie-ticket/calculateMovieTicketValue.usecase';
+import GetMoviebyIdUseCase from './UseCases/movie/getMovieById.usecase';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { CalculateMovieTicketUseCase } from './UseCases/movie-ticket/calculateMo
     MovieFactory,
     MovieTicketFactory,
     GetAllMoviesUseCase,
+    GetMoviebyIdUseCase,
     GetAllMovieTicketsUseCase,
     CreateMovieTicketUseCase,
     DeleteMovieTicketByTicketIdUseCase,
@@ -39,6 +41,7 @@ import { CalculateMovieTicketUseCase } from './UseCases/movie-ticket/calculateMo
     MovieFactory,
     MovieTicketFactory,
     GetAllMoviesUseCase,
+    GetMoviebyIdUseCase,
     GetAllMovieTicketsUseCase,
     CreateMovieTicketUseCase,
     DeleteMovieTicketByTicketIdUseCase,
