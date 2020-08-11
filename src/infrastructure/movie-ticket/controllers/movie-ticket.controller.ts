@@ -23,8 +23,8 @@ export class MovieTicketController {
   @Post('/cost')
   @UsePipes(new ValidationPipe({ transform: true}))
   public calculateCost(@Res() res, @Body() movieTicket: MovieTicketCommand): string{
-    let ticketValue = new MovieTicketCommand();
     const value = this.calculateMovieTicketValueUseCase.handle(movieTicket);
+    let ticketValue = new MovieTicketCommand();
     ticketValue.value = value.get();
     return res.status(HttpStatus.OK).json(ticketValue);
   }

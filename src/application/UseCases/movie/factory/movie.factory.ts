@@ -5,6 +5,11 @@ import Movie from 'src/domain/movie/model/movie';
 @Injectable()
 export default class MovieFactory {
   public createMovie(moviec: MovieCommand): Movie {
+    
+    if (typeof moviec.price == 'string') {
+      moviec.price = parseInt(moviec.price);
+    }
+
     return new Movie(
       '',
       moviec.title,
