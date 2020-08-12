@@ -3,13 +3,6 @@ import { CalculateMovieTicketValueService } from 'src/domain/movie-ticket/servic
 import MovieTicket from 'src/domain/movie-ticket/model/movie-ticket';
 import Movie from 'src/domain/movie/model/Movie';
 
-describe('Hola Mundo TEST', () => {
-  const text = 'Hola Mundo';
-  it('Debe contener Mundo', () => {
-    expect(text).toMatch(/Mundo/);
-  });
-});
-
 describe('Calculate Movie Ticket Value Service', () => {
   let calculateService: CalculateMovieTicketValueService;
   let movieTicket: MovieTicket;
