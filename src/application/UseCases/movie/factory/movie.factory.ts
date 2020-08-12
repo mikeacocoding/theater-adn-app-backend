@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import MovieCommand from '../commands/movie.command';
-import Movie from 'src/domain/movie/model/movie';
+import Movie from 'src/domain/movie/model/Movie';
 
 @Injectable()
 export default class MovieFactory {

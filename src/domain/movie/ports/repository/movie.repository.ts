@@ -1,4 +1,4 @@
-import Movie from 'src/domain/movie/model/movie';
+import Movie from 'src/domain/movie/model/Movie';
 import { Optional } from 'typescript-optional';
 
 export interface MovieRepository {

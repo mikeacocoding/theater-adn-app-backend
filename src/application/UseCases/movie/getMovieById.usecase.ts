@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
-import Movie from 'src/domain/movie/model/movie';
+import Movie from 'src/domain/movie/model/Movie';
 import { MovieRepository } from 'src/domain/movie/ports/repository/movie.repository';
 import { Optional } from 'typescript-optional';
 

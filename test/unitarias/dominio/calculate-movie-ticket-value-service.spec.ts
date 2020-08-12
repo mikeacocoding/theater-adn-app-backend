@@ -1,7 +1,7 @@
 import { TestingModule, Test } from '@nestjs/testing';
 import { CalculateMovieTicketValueService } from 'src/domain/movie-ticket/services/CalculateMovieTicketValue.service';
 import MovieTicket from 'src/domain/movie-ticket/model/movie-ticket';
-import Movie from 'src/domain/movie/model/movie';
+import Movie from 'src/domain/movie/model/Movie';
 
 describe('Hola Mundo TEST', () => {
   const text = 'Hola Mundo';

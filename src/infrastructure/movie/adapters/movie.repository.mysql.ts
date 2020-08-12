@@ -2,7 +2,7 @@ import { MovieRepository } from "src/domain/movie/ports/repository/movie.reposit
 import { MovieEntity } from "../movie.entity";
 import { Repository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
-import Movie from "src/domain/movie/model/movie";
+import Movie from "src/domain/movie/model/Movie";
 import MovieMapper from "../mapper/movie.mapper";
 import { Optional } from 'typescript-optional';
 

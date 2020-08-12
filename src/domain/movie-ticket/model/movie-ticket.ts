@@ -1,4 +1,4 @@
-import Movie from 'src/domain/movie/model/movie';
+import Movie from 'src/domain/movie/model/Movie';
 
 export default class MovieTicket {
   private id: string;
